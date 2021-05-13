@@ -12,6 +12,9 @@ function App() {
 
   const deleteEvent = (id) => {
     EventsDataService.deleteEvent(id)
+      .then(() => {
+        retrieveEvents()
+      })
     }
 
   const retrieveEvents = () => {
