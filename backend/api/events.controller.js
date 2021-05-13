@@ -1,12 +1,15 @@
 import EventsDAO from "../dao/eventsDAO.js"
+import mongodb from "mongodb"
+const ObjectId = mongodb.ObjectID
 
 export default class EventsController {
     static async apiGetEvents (req, res, next) {
         const eventsPerPage = req.query.eventsPerPage ? parseInt(req.query.eventsPerPage, 10) : 20
         const page = req.query.page ? parseInt(req.query.page, 10) : 0
-        
         let filters = {}
-        if (req.query.sport) {
+        if (req.query._id) {
+            filters._id = ObjectId(req.query._id)
+        } else if (req.query.sport) {
             filters.sport = req.query.sport
         } else if (req.query.local) {
             filters.local = req.query.local
@@ -15,7 +18,6 @@ export default class EventsController {
         } else if (req.query.max_players) {
             filters.max_players = req.query.max_players
         }
-
         const { eventsLists, totalNumEvents } = await EventsDAO.getEvents({
             filters,
             page,

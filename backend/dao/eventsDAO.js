@@ -23,7 +23,7 @@ export default class EventsDAO {
                 start_date: date,
                 curr_players: 0,
                 max_players: max_players,
-                eventId: ObjectId,
+                _id: ObjectId,
             }
             return await events.insertOne(eventDocument)
         } catch (e) {
@@ -34,6 +34,12 @@ export default class EventsDAO {
 
     static async incrementPlayers(_id) {
         try {
+            // Check if max number of players already reached
+            const checkMax = await events.findOne({_id: ObjectId(_id)})
+            if (checkMax.curr_players == checkMax.max_players) {
+                console.log("a")
+                return
+            }
             const updateResponse = await events.updateOne(
                 {_id: ObjectId(_id)},
                 { $inc: {curr_players: 1}})
@@ -61,7 +67,9 @@ export default class EventsDAO {
     } = {}) {
         let query
         if (filters) {
-            if ("sport" in filters) {
+            if ("_id" in filters) {
+                query = {"_id": { $eq: filters["_id"] } }
+            } else if ("sport" in filters) {
                 query = {"sport": { $eq: filters["sport"] } }
             } else if ("local" in filters) {
                 query = {"local": { $eq: filters["local"] } }
