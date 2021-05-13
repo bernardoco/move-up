@@ -32,6 +32,16 @@ export default class EventsDAO {
         }
     }
 
+    static async deleteEvent(_id) {
+        try {
+            const deleteResponse = await events.deleteOne({_id: ObjectId(_id)})
+            return deleteResponse
+        } catch (e) {
+            console.error(`Unable to delete event: ${e}`)
+            return { error: e }
+        }
+    }
+
     static async getEvents({
         filters = null,
         page = 0,

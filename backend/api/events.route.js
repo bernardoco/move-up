@@ -8,5 +8,6 @@ router.route("/").get(EventsController.apiGetEvents)
 router
     .route("/event")
     .post(EventsController.apiAddEvent)
+    .delete(EventsController.apiDeleteEvent)
 
 export default router
