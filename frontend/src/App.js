@@ -11,8 +11,8 @@ function App() {
   }, []);
 
   const deleteEvent = (id) => {
-    setEvents(events.filter((event) => event.id !== id))
-  }
+    EventsDataService.deleteEvent(id)
+    }
 
   const retrieveEvents = () => {
     EventsDataService.getAll()

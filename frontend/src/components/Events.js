@@ -5,8 +5,8 @@ const Events = ({ events, onDelete }) => {
         <>
             {events.map((event) => (
                 <Event 
-                    key={event.id}
-                    id={event.id}
+                    key={event._id}
+                    _id={event._id}
                     sport={event.sport}
                     local={event.local}
                     curr_players={event.curr_players}

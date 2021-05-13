@@ -54,7 +54,6 @@ export default class EventsController {
     static async apiDeleteEvent(req, res, next) {
         try {
             const _id = req.body._id
-            console.log(_id)
             const EventResponse = await EventsDAO.deleteEvent(
                 _id)
             res.json({ status: "success" })

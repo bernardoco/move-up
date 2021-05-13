@@ -14,7 +14,11 @@ class EventDataService {
     }
 
     createEvent(data) {
-        return http.post("/event", data);
+        return http.post(`/event`, data);
+    }
+
+    deleteEvent(id) {
+        return http.delete(`/event?_id=${id}`, {data:{_id: id}})
     }
 }
 
