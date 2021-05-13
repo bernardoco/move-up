@@ -9,5 +9,6 @@ router
     .route("/event")
     .post(EventsController.apiAddEvent)
     .delete(EventsController.apiDeleteEvent)
+    .put(EventsController.apiIncrementPlayers)
 
 export default router

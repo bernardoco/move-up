@@ -1,7 +1,8 @@
 import Event from './Event'
 
-const Events = ({ events, onDelete }) => {
-    return (
+const Events = ({ events, onClick, onDelete }) => {
+    return (<>
+        <h1>Events</h1>
         <>
             {events.map((event) => (
                 <Event 
@@ -11,9 +12,11 @@ const Events = ({ events, onDelete }) => {
                     local={event.local}
                     curr_players={event.curr_players}
                     max_players={event.max_players}
+                    onClick={onClick}
                     onDelete={onDelete}/>
                 ))}
         </>
+    </>
     )
 }
 

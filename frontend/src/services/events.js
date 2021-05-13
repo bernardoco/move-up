@@ -20,6 +20,10 @@ class EventDataService {
     deleteEvent(id) {
         return http.delete(`/event?_id=${id}`, {data:{_id: id}})
     }
+
+    updateEvent(id) {
+        return http.put("/event", {_id: id})
+    }
 }
 
 export default new EventDataService();
