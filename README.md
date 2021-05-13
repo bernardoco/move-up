@@ -26,7 +26,7 @@ npm start
 ```
 Open in browser
 ```
-localhost
+localhost:3000
 ```
 
 ## Building the Docker Images
@@ -44,4 +44,8 @@ Run images
 ```
 docker run -p 5000:5000 api-server
 docker run -p 80:80 react-app
+```
+Open in browser
+```
+localhost
 ```
