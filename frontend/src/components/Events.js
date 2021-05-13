@@ -9,7 +9,7 @@ const Events = ({ events, onDelete }) => {
                     id={event.id}
                     sport={event.sport}
                     local={event.local}
-                    current_players={event.current_players}
+                    curr_players={event.curr_players}
                     max_players={event.max_players}
                     onDelete={onDelete}/>
                 ))}

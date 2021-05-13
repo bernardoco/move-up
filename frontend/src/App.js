@@ -1,25 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Events from './components/Events'
+import EventsDataService from './services/events.js'
 
 function App() {
-  const [events, setEvents] = useState([{
-    id: 1,
-    sport: 'Futebol',
-    local: 'Lagoa Rodrigo de Freitas Quadra 1',
-    current_players: 2,
-    max_players: 12},
-  {
-    id: 2,
-    sport: 'Basquete',
-    local: 'Lagoa Rodrigo de Freitas Quadra 2',
-    current_players: 5,
-    max_players: 8
-  }])
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    retrieveEvents();
+  }, []);
 
   const deleteEvent = (id) => {
     setEvents(events.filter((event) => event.id !== id))
   }
+
+  const retrieveEvents = () => {
+    EventsDataService.getAll()
+      .then(response => {
+        setEvents(response.data.events);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  const find = (query, by) => {
+    EventsDataService.find(query, by)
+      .then(response => {
+        setEvents(response.data.events);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
 
   return (
     <div className="container">
