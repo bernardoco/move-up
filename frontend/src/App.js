@@ -25,6 +25,13 @@ function App() {
       })
     }
 
+  const updateEvent = (id) => {
+    EventsDataService.updateEvent(id)
+      .then(() => {
+        retrieveEvents()
+      })
+  }
+
   const retrieveEvents = () => {
     EventsDataService.getAll()
       .then(response => {
@@ -47,11 +54,15 @@ function App() {
 
 
   return (
-    <div className="container">
-      <Header />
-      <AddEvent onAdd={addEvent}/>
-      {events.length > 0 ? <Events events={events} onDelete={deleteEvent}/> : 'No Events'}
-    </div>
+    <section className='container'>
+      <div className="add-event-comp">
+        <Header />
+        <AddEvent onAdd={addEvent}/>
+      </div>
+      <div className='events-comp'>
+        {events.length > 0 ? <Events events={events} onClick={updateEvent} onDelete={deleteEvent}/> : 'No Events'}
+      </div>
+    </section>
   );
 }
 

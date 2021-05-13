@@ -1,16 +1,7 @@
-import Button from './Button'
-
 const Header = () => {
-    const onClick = () => {
-        console.log('Click')
-    }
-
     return (
         <header>
-            <h1>Events</h1>
-            <Button text='+'
-                onClick={onClick}
-            />
+            <h1>Create Event</h1>
         </header>
     )
 }

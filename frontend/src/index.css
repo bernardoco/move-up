@@ -11,6 +11,10 @@ body {
 }
 
 .container {
+  display: flex;
+}
+
+.add-event-comp {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
@@ -18,6 +22,18 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  flex: 0 0 65%;
+}
+
+.events-comp {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+  flex: 1;
 }
 
 .header {
