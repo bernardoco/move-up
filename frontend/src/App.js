@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Events from './components/Events'
+import AddEvent from './components/AddEvent'
 import EventsDataService from './services/events.js'
 
 function App() {
@@ -9,6 +10,13 @@ function App() {
   useEffect(() => {
     retrieveEvents();
   }, []);
+
+  const addEvent = (event) => {
+    EventsDataService.createEvent(event)
+      .then(() => {
+        retrieveEvents()
+      })
+  }
 
   const deleteEvent = (id) => {
     EventsDataService.deleteEvent(id)
@@ -41,6 +49,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <AddEvent onAdd={addEvent}/>
       {events.length > 0 ? <Events events={events} onDelete={deleteEvent}/> : 'No Events'}
     </div>
   );

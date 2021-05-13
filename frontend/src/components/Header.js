@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <header>
             <h1>Events</h1>
-            <Button text='Add'
+            <Button text='+'
                 onClick={onClick}
             />
         </header>
