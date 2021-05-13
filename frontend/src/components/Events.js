@@ -1,8 +1,7 @@
 import Event from './Event'
 
 const Events = ({ events, onClick, onDelete }) => {
-    return (<>
-        <h1>Events</h1>
+    return (
         <>
             {events.map((event) => (
                 <Event 
@@ -10,13 +9,13 @@ const Events = ({ events, onClick, onDelete }) => {
                     _id={event._id}
                     sport={event.sport}
                     local={event.local}
+                    date={event.start_date}
                     curr_players={event.curr_players}
                     max_players={event.max_players}
                     onClick={onClick}
                     onDelete={onDelete}/>
                 ))}
         </>
-    </>
     )
 }
 
