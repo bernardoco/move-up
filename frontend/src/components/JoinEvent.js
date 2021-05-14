@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-const JoinEvent = ( { onJoin, setState, _id} ) => {
+const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
     const [name, setName] = useState('')
 
     const handleSubmit = useCallback(event => {
@@ -15,6 +15,12 @@ const JoinEvent = ( { onJoin, setState, _id} ) => {
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
+            <div>
+                <h4>Participants:</h4>
+                {participants.map((participant) => (
+                        <p key={participant}>- {participant}</p>
+                    ))}           
+            </div>
             <div className='form-control'>
                 <input type='text' placeholder='Your Name' onChange={(e) => setName(e.target.value)} />
             </div>

@@ -10,6 +10,7 @@ const Events = ({ events, onJoin, onDelete }) => {
                     sport={event.sport}
                     local={event.local}
                     date={event.start_date}
+                    participants={event.participants}
                     curr_players={event.curr_players}
                     max_players={event.max_players}
                     onJoinEvent={onJoin}
