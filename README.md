@@ -11,7 +11,8 @@ Move Up is a platform to find and schedule group sports activities. The intended
 For now, this application is capable of:
 * Create an Event
 * Delete an existing Event
-* Sign in for an Event increasing the number of players
+* Sign in for an Event
+* Show participants signed in for an existing Event
 
 ## Getting Started
 Clone this repository
