@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Search from './components/Search'
 import Events from './components/Events'
 import AddEvent from './components/AddEvent'
 import EventsDataService from './services/events.js'
@@ -52,14 +53,16 @@ function App() {
       });
   };
 
-
   return (
     <section className='container'>
       <div className="add-event-comp">
-        <Header />
+        <h1>Create Event</h1>
         <AddEvent onAdd={addEvent}/>
       </div>
+
       <div className='events-comp'>
+        <h1>Events</h1>
+        <Search onClick={find}/>
         {events.length > 0 ? <Events events={events} onClick={updateEvent} onDelete={deleteEvent}/> : 'No Events'}
       </div>
     </section>

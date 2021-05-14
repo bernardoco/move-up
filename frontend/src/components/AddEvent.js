@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { FaRegObjectUngroup } from 'react-icons/fa'
 
 const AddEvent = ({ onAdd }) => {
     const [sport, setSport] = useState('')
