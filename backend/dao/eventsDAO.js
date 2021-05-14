@@ -70,7 +70,7 @@ export default class EventsDAO {
             if ("_id" in filters) {
                 query = {"_id": { $eq: filters["_id"] } }
             } else if ("sport" in filters) {
-                query = {"sport": { $eq: filters["sport"] } }
+                query = {"sport": { $regex : filters["sport"], $options: "i" } }
             } else if ("local" in filters) {
                 query = {"local": { $eq: filters["local"] } }
             } else if ("curr_players" in filters) {
