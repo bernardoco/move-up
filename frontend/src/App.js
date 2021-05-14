@@ -3,6 +3,7 @@ import Search from './components/Search'
 import Events from './components/Events'
 import AddEvent from './components/AddEvent'
 import EventsDataService from './services/events.js'
+import logo from './moveup-logo.png'
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -56,6 +57,10 @@ function App() {
 
   return (
     <section className='container'>
+      <div className='logo'>
+        <img src={logo} alt="Move Up Logo"/>
+      </div>
+
       <div className="add-event-comp">
         <h1>Create Event</h1>
         <AddEvent onAdd={addEvent}/>
@@ -66,6 +71,7 @@ function App() {
         <Search onClick={find}/>
         {events.length > 0 ? <Events events={events} onJoin={joinEvent} onDelete={deleteEvent}/> : 'No Events'}
       </div>
+
     </section>
   );
 }

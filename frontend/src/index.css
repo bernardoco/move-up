@@ -10,6 +10,12 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.logo {
+  margin-left: 50px;
+  margin-right: 0px;
+  margin-top: 0px;
+}
+
 .container {
   display: flex;
 }
@@ -17,20 +23,24 @@ body {
 .add-event-comp {
   max-width: 500px;
   margin: 30px auto;
+  margin-left: 50px;
+  margin-right: 50px;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid #756DCF;
   padding: 30px;
   border-radius: 5px;
   flex: 0 0 65%;
+  max-height: 520px;
 }
 
 .events-comp {
   max-width: 500px;
   margin: 30px auto;
+  margin-left: 0px;
   overflow: auto;;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid #756DCF;
   padding: 30px;
   border-radius: 5px;
   flex: 1;
@@ -45,7 +55,7 @@ body {
 
 .button {
   display: inline-block;
-  background: #000;
+  background: #756DCF;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -74,10 +84,6 @@ body {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
-}
-
-.event.reminder {
-  border-left: 5px solid green;
 }
 
 .event h3 {
