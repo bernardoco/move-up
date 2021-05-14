@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/bernardoco/move-up">
-    <img src="./frontend/public/moveup-logo.png" alt="Move Up">
+    <img src="./frontend/src/moveup-logo.png" alt="Move Up">
   </a>
 </div>
 
