@@ -1,6 +1,8 @@
-<p align="center">
-  <img src="https://github.com/bernardoco/move-up/blob/master/frontend/public/moveup-logo.png" alt="logo">
-</p>
+<div align="center">
+  <a href="https://github.com/bernardoco/move-up">
+    <img src="./frontend/public/moveup-logo.png" alt="Move Up">
+  </a>
+</div>
 
 # Move Up
 
