@@ -13,6 +13,8 @@ function App() {
   }, []);
 
   const addEvent = (event) => {
+    var datetime = event.date.split("T")
+    event.date = datetime.join(" ")
     EventsDataService.createEvent(event)
       .then(() => {
         retrieveEvents()
