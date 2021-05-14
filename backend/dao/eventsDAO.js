@@ -21,6 +21,7 @@ export default class EventsDAO {
             const eventDocument = { sport: sport,
                 local: local,
                 start_date: date,
+                participants: [],
                 curr_players: 0,
                 max_players: max_players,
                 _id: ObjectId,
@@ -32,17 +33,12 @@ export default class EventsDAO {
         }
     }
 
-    static async incrementPlayers(_id) {
+    static async incrementPlayers(_id, user_name) {
         try {
-            // Check if max number of players already reached
-            const checkMax = await events.findOne({_id: ObjectId(_id)})
-            if (checkMax.curr_players == checkMax.max_players) {
-                console.log("a")
-                return
-            }
             const updateResponse = await events.updateOne(
-                {_id: ObjectId(_id)},
-                { $inc: {curr_players: 1}})
+                { _id: ObjectId(_id) },
+                { $push: {participants: user_name},
+                  $inc: {curr_players: 1} })
             return updateResponse
         } catch (e) {
             console.error(`Unable to update event: ${e}`)

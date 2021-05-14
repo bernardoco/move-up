@@ -87,11 +87,11 @@ body {
 }
 
 .add-form {
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .form-control {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .form-control label {

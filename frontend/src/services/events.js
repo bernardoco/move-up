@@ -21,8 +21,8 @@ class EventDataService {
         return http.delete(`/event?_id=${id}`, {data:{_id: id}})
     }
 
-    updateEvent(id) {
-        return http.put("/event", {_id: id})
+    updateEvent(id, name) {
+        return http.put("/event", {_id: id, user_name: name})
     }
 }
 
