@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/bernardoco/move-up/blob/master/frontend/public/moveup-logo.png" alt="logo">
+</p>
+
 # Move Up
 
 This is a project for the Advanced Programming discipline at the Federal University of Rio de Janeiro (UFRJ).
