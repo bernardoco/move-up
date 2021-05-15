@@ -36,21 +36,15 @@ Open in browser
 localhost:3000
 ```
 
-## Building the Docker Images
-Build server image
+## Start with Docker
+Clone this repository
 ```
-cd ./backend
-docker build -t api-server .
+git clone https://github.com/bernardoco/move-up
 ```
-Build client image
+Build images and run containers with docker-compose
 ```
-cd ./frontend
-docker build -t react-app .
-```
-Run images
-```
-docker run -p 5000:5000 api-server
-docker run -p 80:80 react-app
+docker-compose build
+docker-compose up -d
 ```
 Open in browser
 ```
