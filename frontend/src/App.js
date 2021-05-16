@@ -55,12 +55,11 @@ function App() {
       });
   };
 
-  return (
-    <section className='container'>
-      <div className='logo'>
-        <img src={logo} alt="Move Up Logo"/>
-      </div>
+  const [width, setWidth] = useState(window.innerWidth);
 
+  return (
+    
+    <section className= {width >= 768 ? 'container' : 'container-mobile'}>
       <div className="add-event-comp">
         <h1>Create Event</h1>
         <AddEvent onAdd={addEvent}/>
@@ -71,7 +70,6 @@ function App() {
         <Search onClick={find}/>
         {events.length > 0 ? <Events events={events} onJoin={joinEvent} onDelete={deleteEvent}/> : 'No Events'}
       </div>
-
     </section>
   );
 }

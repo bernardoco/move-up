@@ -6,28 +6,39 @@
   padding: 0;
 }
 
-body {
+html, body {
   font-family: 'Poppins', sans-serif;
 }
 
 .logo {
-  margin-left: 50px;
+  margin-left: 5%;
   margin-right: 0px;
-  margin-top: 0px;
+  margin-top: -30px;
+
+
 }
 
 .container {
   display: flex;
+  background-color: #756DCF;
+  flex-direction: row;
+}
+
+.container-mobile{
+  display: flex;
+  background-color: #756DCF;
+  flex-direction: column;
 }
 
 .add-event-comp {
   max-width: 500px;
   margin: 30px auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  /* margin-left: 50px; */
+  /* margin-right: 50px; */
   overflow: auto;
   min-height: 300px;
-  border: 1px solid #756DCF;
+  border: 1px solid #000;
+  background-color: #fff;
   padding: 30px;
   border-radius: 5px;
   flex: 0 0 65%;
@@ -37,10 +48,11 @@ body {
 .events-comp {
   max-width: 500px;
   margin: 30px auto;
-  margin-left: 0px;
+  /* margin-left: 0px; */
   overflow: auto;;
   min-height: 300px;
-  border: 1px solid #756DCF;
+  border: 1px solid #000;
+  background-color: #fff;
   padding: 30px;
   border-radius: 5px;
   flex: 1;
@@ -49,8 +61,8 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  height: 120px;
 }
 
 .button {
@@ -128,6 +140,6 @@ body {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: 0px;
   text-align: center;
 }
