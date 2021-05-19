@@ -1,6 +1,16 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useContext  } from 'react'
+import { UserContext } from "../providers/UserProvider";
+import { navigate } from "@reach/router";
+import {auth} from "../firebase";
+
 
 const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
+    const user = useContext(UserContext);
+    const {photoURL, displayName, email} = user;
+    console.log(user);
+
+
+
     const [name, setName] = useState('')
 
     const handleSubmit = useCallback(event => {
@@ -9,7 +19,7 @@ const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
         
     const onSubmit = () => {
         handleSubmit()
-        onJoin( {name} )
+        onJoin( {displayName} )
         setName('')
     }
 
@@ -21,9 +31,9 @@ const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
                         <p key={participant}>- {participant}</p>
                     ))}           
             </div>
-            <div className='form-control'>
-                <input type='text' placeholder='Your Name' onChange={(e) => setName(e.target.value)} />
-            </div>
+            {/* <div className='form-control'>
+                <h2 className = "text-2xl font-semibold">{displayName}</h2>
+            </div> */}
 
             <input type='submit' value='Join Event' className='button button-block' />
         </form>
