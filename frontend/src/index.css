@@ -22,6 +22,7 @@ html, body {
   display: flex;
   background-color: #756DCF;
   flex-direction: row;
+  max-width: 100%
 }
 
 .container-mobile{
@@ -48,7 +49,8 @@ html, body {
 .events-comp {
   max-width: 500px;
   margin: 30px auto;
-  /* margin-left: 0px; */
+  /* margin-left: 20px;
+  margin-right: 20px;  */
   overflow: auto;;
   min-height: 300px;
   border: 1px solid #000;
@@ -56,6 +58,11 @@ html, body {
   padding: 30px;
   border-radius: 5px;
   flex: 1;
+}
+
+.events-comp-mobile {
+  margin-left: 20px;
+  margin-right: 20px; 
 }
 
 .header {
