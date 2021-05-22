@@ -6,10 +6,13 @@ import ShowParticipants from './ShowParticipants'
 const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user }) => {
     const [join, setJoin] = useState(false)
     const [showParticipants, setShow] = useState(false)
-    const alreadySigned = participants.includes(user.displayName);
+    const names = participants.map(({ name }) => name);
+    const uids = participants.map(({ userid }) => userid);
 
-    const onJoin = (user_name) => {
-        onJoinEvent(_id, user_name.name)
+    const alreadySigned = uids.includes(user.uid);
+
+    const onJoin = (user_name, user_id) => {
+        onJoinEvent(_id, user_name.name, user_id)
     }
 
     return (

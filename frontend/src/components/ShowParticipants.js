@@ -3,7 +3,7 @@ const ShowParticipants = ({ participants }) => {
         <div>
             <h4>Participants:</h4>
             {participants.map((participant) => (
-                    <p key={participant}>- {participant}</p>
+                    <p key={participant.userid}>- {participant.name}</p>
                 ))}           
         </div>
     )

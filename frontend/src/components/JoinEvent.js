@@ -6,25 +6,11 @@ import {auth} from "../firebase";
 
 const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
     const user = useContext(UserContext);
-    const {photoURL, displayName, email} = user;
+    const {photoURL, displayName, email, uid} = user;
     console.log(user);
 
-
-
-    const [name, setName] = useState('')
-
-    const handleSubmit = useCallback(event => {
-                setState(false)
-            }, [setState])
-        
-    const onSubmit = () => {
-        handleSubmit()
-        onJoin( {displayName} )
-        setName('')
-    }
-
     return (
-        <form className='add-form' onSubmit={onSubmit}>
+        <form className='add-form' onSubmit={() => onJoin(displayName, uid)}>
             <div>
                 <h4>Participants:</h4>
                 {participants.map((participant) => (

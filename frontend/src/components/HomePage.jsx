@@ -12,9 +12,7 @@ import { navigate } from "@reach/router";
 
 const HomePage = () => {
   const user = useContext(UserContext);
-  const {photoURL, displayName, email} = user;
-
-  console.log(user);
+  const {photoURL, displayName, email, uid} = user;
 
   const [events, setEvents] = useState([]);
 
@@ -39,7 +37,7 @@ const HomePage = () => {
     }
 
   const joinEvent = (id, name) => {
-    EventsDataService.updateEvent(id, displayName)
+    EventsDataService.updateEvent(id, displayName, uid)
       .then(() => {
         retrieveEvents()
       })
