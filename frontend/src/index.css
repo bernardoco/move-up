@@ -14,8 +14,23 @@ html, body {
   margin-left: 5%;
   margin-right: 0px;
   margin-top: -30px;
+}
 
+.Logout {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.UserInfo {
+  text-align: center;
+  display: flex;
+  flex: 0;
+}
+
+.Sign-Out {
+  text-align: center;
+  flex: 1;
 }
 
 p {

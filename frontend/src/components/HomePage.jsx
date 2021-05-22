@@ -78,7 +78,7 @@ const HomePage = () => {
       <div className= {width >= 768 ? 'events-comp' : 'events-comp events-comp-mobile'} >
         <h1>Events</h1>
         <Search onClick={find}/>
-        {events.length > 0 ? <Events events={events} onJoin={joinEvent} onDelete={deleteEvent}/> : 'No Events'}
+        {events.length > 0 ? <Events events={events} user={user} onJoin={joinEvent} onDelete={deleteEvent}/> : 'No Events'}
       </div>
     </section>
   );

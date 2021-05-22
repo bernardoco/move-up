@@ -23,9 +23,8 @@ const Header = () => {
         {
           user ?
         <div className='Logout'>
-          <div className = "md:pl-4">
-            <h2 className = "text-2xl font-semibold">{displayName}</h2>
-            <h3 className = "italic">{email}</h3>
+          <div className = "UserInfo">
+            <h2 className = "text-2xl font-semibold">Welcome, {displayName}!</h2>
           </div>
           <button className = "Sign-Out" onClick = {() => {auth.signOut()}}>
           <ExitToApp/>
