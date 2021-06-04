@@ -7,6 +7,7 @@ import HomePage from "./HomePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
 import Header from './Header'
+import ProfilePage from './ProfilePage'
 
 
 function Application() {
@@ -14,7 +15,10 @@ function Application() {
   console.log(user);
   return (
         user ?
-          <HomePage />
+          <Router>
+            <HomePage path="/"/>
+            <ProfilePage path="profile" user={user}/>
+          </Router>
       :
         <Router>
           <SignUp path="signUp" />

@@ -16,6 +16,10 @@ html, body {
   margin-top: -30px;
 }
 
+.nav-btn {
+  margin-right: 50px;
+}
+
 .Logout {
   display:flex;
   flex-direction: row;
