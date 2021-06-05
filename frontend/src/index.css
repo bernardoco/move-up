@@ -6,28 +6,66 @@
   padding: 0;
 }
 
-body {
+html, body {
   font-family: 'Poppins', sans-serif;
 }
 
 .logo {
-  margin-left: 50px;
+  margin-left: 5%;
   margin-right: 0px;
-  margin-top: 0px;
+  margin-top: -30px;
 }
+
+.nav-btn {
+  margin-right: 50px;
+}
+
+.Logout {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.UserInfo {
+  text-align: center;
+  display: flex;
+  flex: 0;
+}
+
+.Sign-Out {
+  text-align: center;
+  flex: 1;
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 
 .container {
   display: flex;
+  background-color: #756DCF;
+  flex-direction: row;
+  max-width: 100%
+}
+
+.container-mobile{
+  display: flex;
+  background-color: #756DCF;
+  flex-direction: column;
 }
 
 .add-event-comp {
   max-width: 500px;
   margin: 30px auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  /* margin-left: 50px; */
+  /* margin-right: 50px; */
   overflow: auto;
   min-height: 300px;
-  border: 1px solid #756DCF;
+  border: 1px solid #000;
+  background-color: #fff;
   padding: 30px;
   border-radius: 5px;
   flex: 0 0 65%;
@@ -37,20 +75,27 @@ body {
 .events-comp {
   max-width: 500px;
   margin: 30px auto;
-  margin-left: 0px;
+  /* margin-left: 20px;
+  margin-right: 20px;  */
   overflow: auto;;
   min-height: 300px;
-  border: 1px solid #756DCF;
+  border: 1px solid #000;
+  background-color: #fff;
   padding: 30px;
   border-radius: 5px;
   flex: 1;
 }
 
+.events-comp-mobile {
+  margin-left: 20px;
+  margin-right: 20px; 
+}
+
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  height: 120px;
 }
 
 .button {
@@ -107,9 +152,11 @@ body {
 .form-control input {
   width: 100%;
   height: 40px;
-  margin: 5px;
+  /* margin: 5px; */
   padding: 3px 7px;
   font-size: 17px;
+  border-radius: 5px;
+  border-width: 2px;
 }
 
 .form-control-check {
@@ -128,6 +175,6 @@ body {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: 0px;
   text-align: center;
 }

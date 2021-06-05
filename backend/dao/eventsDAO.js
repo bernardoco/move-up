@@ -33,11 +33,11 @@ export default class EventsDAO {
         }
     }
 
-    static async incrementPlayers(_id, user_name) {
+    static async incrementPlayers(_id, user_name, user_id) {
         try {
             const updateResponse = await events.updateOne(
                 { _id: ObjectId(_id) },
-                { $push: {participants: user_name},
+                { $push: {participants: {name: user_name, userid: user_id}},
                   $inc: {curr_players: 1} })
             return updateResponse
         } catch (e) {

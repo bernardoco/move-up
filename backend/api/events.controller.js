@@ -57,8 +57,9 @@ export default class EventsController {
         try {
             const _id = req.body._id
             const user_name = req.body.user_name
+            const user_id = req.body.user_id
             const EventResponse = await EventsDAO.incrementPlayers(
-                _id, user_name)
+                _id, user_name, user_id)
             res.json({ status: "success" })
         } catch (e) {
             res.status(500).json({ error: e.message })
