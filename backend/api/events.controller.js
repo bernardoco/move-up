@@ -71,6 +71,18 @@ export default class EventsController {
         }
     }
 
+    static async apiUnsignFromEvent(req, res, next) {
+        try {
+            const _id = req.body._id
+            const user_id = req.body.user_id
+            const EventResponse = await EventsDAO.unsignFromEvent(
+                _id, user_id)
+            res.json({ status: "success" })
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
     static async apiDeleteEvent(req, res, next) {
         try {
             const _id = req.body._id

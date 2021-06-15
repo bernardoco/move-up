@@ -21,6 +21,13 @@ const ProfilePage = (user) => {
           });
       };
 
+    const unsignFromEvent = (id) => {
+        EventsDataService.unsignFromEvent(id, user.user.uid)
+        .then(() => {
+            findRegistered(user.user.uid)
+          })
+    }
+
     return (
         <section className= {width >= 768 ? 'container' : 'container-mobile'}>
             <div className="events-comp">
@@ -31,7 +38,7 @@ const ProfilePage = (user) => {
 
             <div className="events-comp">
                 <h1>Signed In Events</h1>
-                {events.length > 0 ? <Events events={events} user={user} profileMode={true}/> : 'Sign in to an event in the Home Page!'}
+                {events.length > 0 ? <Events events={events} user={user} onDelete={unsignFromEvent} profileMode={true}/> : 'Sign in to an event in the Home Page!'}
             </div>
 
         </section>

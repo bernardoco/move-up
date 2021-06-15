@@ -29,6 +29,10 @@ class EventDataService {
     updateEvent(id, name, uid) {
         return http.put("/event", {_id: id, user_name: name, user_id: uid})
     }
+
+    unsignFromEvent(id, uid) {
+        return http.put("/event/unsign", {_id: id, user_id: uid})
+    }
 }
 
 export default new EventDataService();

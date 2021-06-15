@@ -47,6 +47,19 @@ export default class EventsDAO {
         }
     }
 
+    static async unsignFromEvent(_id, user_id) {
+        try {
+            const updateResponse = await events.updateOne(
+                { _id: ObjectId(_id) },
+                { $pull: {participants: {userid: user_id}},
+                  $inc: {curr_players: -1} })
+            return updateResponse
+        } catch (e) {
+            console.error(`Unable to update event: ${e}`)
+            return { error: e }
+        }
+    }
+
     static async deleteEvent(_id) {
         try {
             const deleteResponse = await events.deleteOne({_id: ObjectId(_id)})

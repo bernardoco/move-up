@@ -11,4 +11,8 @@ router
     .delete(EventsController.apiDeleteEvent)
     .put(EventsController.apiIncrementPlayers)
 
+router
+    .route("/event/unsign")
+    .put(EventsController.apiUnsignFromEvent)
+
 export default router

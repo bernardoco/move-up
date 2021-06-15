@@ -21,7 +21,7 @@ const Event = ({ _id, sport, local, date, participants, curr_players, max_player
 
     return (
         <div className={eventClass}>
-            { (profileMode || sponsored) ? <h3>{sport}</h3>
+            { (sponsored && !profileMode) ? <h3>{sport}</h3>
                 : <h3>{sport}  <FaTimes style={{color: 'red', cursor: 'pointer'}} onClick={() => onDelete(_id)}/></h3>
             }
             <p id='local'><FaMapMarkerAlt /> {local}</p>
