@@ -1,19 +1,14 @@
 
 import React, { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
-import { navigate, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import {auth} from "../firebase";
 import logo from '../moveup-logo.png'
-
-import { IconButton, Icon } from '@material-ui/core';
 import {ExitToApp} from '@material-ui/icons';
 
 const Header = () => {
   const user = useContext(UserContext);
-  
-  const {photoURL, displayName, email} = (user ? user : ['','','']);
-  console.log(user);
-
+  const { displayName } = (user ? user : '');
 
   return (
     <div className="header">

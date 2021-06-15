@@ -1,27 +1,19 @@
-import { useCallback, useState, useContext  } from 'react'
+import { useCallback, useContext  } from 'react'
 import { UserContext } from "../providers/UserProvider";
-import { navigate } from "@reach/router";
-import {auth} from "../firebase";
 import ShowParticipants from './ShowParticipants'
 
 
-const JoinEvent = ( { onJoin, setState, _id, participants} ) => {
+const JoinEvent = ( { onJoin, setState, participants} ) => {
     const user = useContext(UserContext);
-    const {photoURL, displayName, email, uid} = user;
-    console.log(user);
+    const { displayName, uid } = user;
 
-
- 
-    const [name, setName] = useState('') 
- 
-    const handleSubmit = useCallback(event => { 
+    const handleSubmit = useCallback(() => { 
                 setState(false) 
             }, [setState]) 
          
     const onSubmit = () => { 
         handleSubmit() 
         onJoin(displayName, uid) 
-        setName('') 
     } 
  
 

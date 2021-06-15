@@ -3,16 +3,12 @@ import Search from './Search'
 import Events from './Events'
 import AddEvent from './AddEvent'
 import EventsDataService from '../services/events.js'
-import logo from '../moveup-logo.png'
-
 import { UserContext } from "../providers/UserProvider";
-import {auth} from "../firebase";
-import { navigate } from "@reach/router";
 
 
 const HomePage = () => {
   const user = useContext(UserContext);
-  const {photoURL, displayName, email, uid} = user;
+  const { displayName, uid} = user;
 
   const [events, setEvents] = useState([]);
 
@@ -36,7 +32,7 @@ const HomePage = () => {
       })
     }
 
-  const joinEvent = (id, name) => {
+  const joinEvent = (id) => {
     EventsDataService.updateEvent(id, displayName, uid)
       .then(() => {
         retrieveEvents()
@@ -63,7 +59,7 @@ const HomePage = () => {
       });
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width] = useState(window.innerWidth);
 
   return (
     

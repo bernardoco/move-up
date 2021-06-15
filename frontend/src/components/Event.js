@@ -6,9 +6,7 @@ import ShowParticipants from './ShowParticipants'
 const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user, profileMode, sponsored }) => {
     const [join, setJoin] = useState(false)
     const [showParticipants, setShow] = useState(false)
-    const names = participants.map(({ name }) => name);
     const uids = participants.map(({ userid }) => userid);
-
     const alreadySigned = uids.includes(user.uid);
 
     const onJoin = (user_name, user_id) => {
@@ -38,7 +36,7 @@ const Event = ({ _id, sport, local, date, participants, curr_players, max_player
                 showParticipants ? <ShowParticipants participants={participants} /> : null
             }
             {
-                (join && !profileMode) ? <JoinEvent onJoin={onJoin} setState={setJoin} _id={_id} participants={participants}/>
+                (join && !profileMode) ? <JoinEvent onJoin={onJoin} setState={setJoin} participants={participants}/>
                 :
                 null
             }

@@ -1,18 +1,19 @@
-import { useState, useEffect, useContext  } from 'react'
+import { useState, useEffect } from 'react'
 import { FaEnvelope } from 'react-icons/fa'
 import EventsDataService from '../services/events.js'
 import Events from './Events'
 
 const ProfilePage = (user) => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width] = useState(window.innerWidth);
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        findRegistered(user.user.uid);
+        findRegistered();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    const findRegistered = (query, by) => {
-        EventsDataService.findRegistered(query, by)
+    const findRegistered = (by) => {
+        EventsDataService.findRegistered(user.user.uid, by)
           .then(response => {
             setEvents(response.data.events);
           })
@@ -24,14 +25,14 @@ const ProfilePage = (user) => {
     const unsignFromEvent = (id) => {
         EventsDataService.unsignFromEvent(id, user.user.uid)
         .then(() => {
-            findRegistered(user.user.uid)
+            findRegistered()
           })
     }
 
     return (
         <section className= {width >= 768 ? 'container' : 'container-mobile'}>
             <div className="events-comp">
-                { user.user.photoURL ? <img src={user.user.photoURL} alt="Profile Picture"></img> : null}
+                { user.user.photoURL ? <img src={user.user.photoURL} alt="Profile"></img> : null}
                 <p>{user.user.displayName}</p>
                 <p id='players'>{user.user.email}<FaEnvelope /></p>
             </div>

@@ -14,7 +14,6 @@ class EventDataService {
     }
 
     findRegistered(query, by="user_id", page=0) {
-        console.log(query);
         return http.get(`?${by}=${query}&page=${page}`);
     }
 
