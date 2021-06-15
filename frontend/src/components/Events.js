@@ -1,6 +1,6 @@
 import Event from './Event'
 
-const Events = ({ events, user, onJoin, onDelete }) => {
+const Events = ({ events, user, onJoin, onDelete, profileMode }) => {
     return (
         <>
             {events.map((event) => (
@@ -15,7 +15,8 @@ const Events = ({ events, user, onJoin, onDelete }) => {
                     max_players={event.max_players}
                     onJoinEvent={onJoin}
                     onDelete={onDelete}
-                    user={user}/>
+                    user={user}
+                    profileMode={profileMode}/>
                 ))}
         </>
     )

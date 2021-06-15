@@ -13,6 +13,11 @@ class EventDataService {
         return http.get(`?${by}=${query}&page=${page}`);
     }
 
+    findRegistered(query, by="user_id", page=0) {
+        console.log(query);
+        return http.get(`?${by}=${query}&page=${page}`);
+    }
+
     createEvent(data) {
         return http.post(`/event`, data);
     }

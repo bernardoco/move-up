@@ -73,6 +73,8 @@ export default class EventsDAO {
                 query = {"curr_players": { $eq: filters["curr_players"] } }
             } else if ("max_players" in filters) {
                 query = {"max_players": { $eq: filters["max_players"] } }
+            } else if ("user_id" in filters) {
+                query = {"participants": { $elemMatch: {"userid": filters["user_id"] } } }
             }
         }
 

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import JoinEvent from './JoinEvent'
 import ShowParticipants from './ShowParticipants'
 
-const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user }) => {
+const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user, profileMode }) => {
     const [join, setJoin] = useState(false)
     const [showParticipants, setShow] = useState(false)
     const names = participants.map(({ name }) => name);
@@ -21,9 +21,9 @@ const Event = ({ _id, sport, local, date, participants, curr_players, max_player
             <p id='local'><FaMapMarkerAlt /> {local}</p>
             <p id='date'><FaCalendarAlt /> {date}</p>
             {
-                (curr_players >= max_players || alreadySigned) && !showParticipants ?
+                ((curr_players >= max_players || alreadySigned) || profileMode) && !showParticipants ?
                 <p id='players'><FaUserFriends /> {curr_players}/{max_players} <FaAngleDoubleDown style={{cursor: 'pointer'}} onClick={() => setShow(!showParticipants)}/></p>
-                : (curr_players >= max_players || alreadySigned) && showParticipants ?
+                : ((curr_players >= max_players || alreadySigned) || profileMode) && showParticipants ?
                 <p id='players'><FaUserFriends /> {curr_players}/{max_players} <FaAngleDoubleUp style={{cursor: 'pointer'}} onClick={() => setShow(!showParticipants)}/></p>
                 :
                 <p id='players'><FaUserFriends /> {curr_players}/{max_players} <FaPlusCircle style={{cursor: 'pointer'}} onClick={() => setJoin(!join)} /> </p>
@@ -32,7 +32,7 @@ const Event = ({ _id, sport, local, date, participants, curr_players, max_player
                 showParticipants ? <ShowParticipants participants={participants} /> : null
             }
             {
-                join ? <JoinEvent onJoin={onJoin} setState={setJoin} _id={_id} participants={participants}/>
+                (join && !profileMode) ? <JoinEvent onJoin={onJoin} setState={setJoin} _id={_id} participants={participants}/>
                 :
                 null
             }

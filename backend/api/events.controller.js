@@ -17,7 +17,10 @@ export default class EventsController {
             filters.curr_players = req.query.curr_players
         } else if (req.query.max_players) {
             filters.max_players = req.query.max_players
+        } else if (req.query.user_id) {
+            filters.user_id = req.query.user_id
         }
+
         const { eventsLists, totalNumEvents } = await EventsDAO.getEvents({
             filters,
             page,
