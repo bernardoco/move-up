@@ -16,7 +16,7 @@ export default class EventsDAO {
         }
     }
 
-    static async addEvent(sport, local, date, max_players) {
+    static async addEvent(sport, local, date, max_players, sponsored) {
         try {
             const eventDocument = { sport: sport,
                 local: local,
@@ -24,6 +24,7 @@ export default class EventsDAO {
                 participants: [],
                 curr_players: 0,
                 max_players: max_players,
+                sponsored: sponsored,
                 _id: ObjectId,
             }
             return await events.insertOne(eventDocument)

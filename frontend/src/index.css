@@ -131,6 +131,14 @@ p {
   padding: 10px 20px;
 }
 
+.event-sponsored {
+  background: #f4f4f4;
+  border: 1px solid #756DCF;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px 20px;
+}
+
 .event h3 {
   display: flex;
   align-items: center;

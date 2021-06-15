@@ -1,9 +1,12 @@
 import Event from './Event'
 
 const Events = ({ events, user, onJoin, onDelete, profileMode }) => {
+    events.sort((a,b) => b.sponsored - a.sponsored)
+
     return (
         <>
-            {events.map((event) => (
+        {
+            events.map((event) => (
                 <Event 
                     key={event._id}
                     _id={event._id}
@@ -16,7 +19,8 @@ const Events = ({ events, user, onJoin, onDelete, profileMode }) => {
                     onJoinEvent={onJoin}
                     onDelete={onDelete}
                     user={user}
-                    profileMode={profileMode}/>
+                    profileMode={profileMode}
+                    sponsored={event.sponsored}/>
                 ))}
         </>
     )

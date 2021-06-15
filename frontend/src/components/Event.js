@@ -3,7 +3,7 @@ import { useState } from 'react'
 import JoinEvent from './JoinEvent'
 import ShowParticipants from './ShowParticipants'
 
-const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user, profileMode }) => {
+const Event = ({ _id, sport, local, date, participants, curr_players, max_players, onJoinEvent, onDelete, user, profileMode, sponsored }) => {
     const [join, setJoin] = useState(false)
     const [showParticipants, setShow] = useState(false)
     const names = participants.map(({ name }) => name);
@@ -15,9 +15,13 @@ const Event = ({ _id, sport, local, date, participants, curr_players, max_player
         onJoinEvent(_id, user_name.name, user_id)
     }
 
+    let eventClass;
+    sponsored ? eventClass = 'event-sponsored' : eventClass = 'event'
+    
+
     return (
-        <div className='event'>
-            { profileMode ? <h3>{sport}</h3>
+        <div className={eventClass}>
+            { (profileMode || sponsored) ? <h3>{sport}</h3>
                 : <h3>{sport}  <FaTimes style={{color: 'red', cursor: 'pointer'}} onClick={() => onDelete(_id)}/></h3>
             }
             <p id='local'><FaMapMarkerAlt /> {local}</p>

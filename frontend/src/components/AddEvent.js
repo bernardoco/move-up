@@ -5,6 +5,7 @@ const AddEvent = ({ onAdd }) => {
     const [local, setLocal] = useState('')
     const [date, setDate] = useState('')
     const [max_players, setMaxPlayers] = useState('')
+    const [sponsored, setSponsored] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -13,11 +14,12 @@ const AddEvent = ({ onAdd }) => {
             alert('Please add a sport')
             return
         }
-        onAdd({ sport, local, date, max_players })
+        onAdd({ sport, local, date, max_players, sponsored })
         setSport('')
         setLocal('')
         setDate('')
         setMaxPlayers('')
+        setSponsored(false)
     }
 
     return (
@@ -40,6 +42,11 @@ const AddEvent = ({ onAdd }) => {
             <div className='form-control'>
                 <label>Max Players</label>
                 <input type='number' value={max_players} onChange={(e) => setMaxPlayers(e.target.value)}/>
+            </div>
+
+            <div className='form-control form-control-check'>
+                <label>Sponsored</label>
+                <input type='checkbox' value={sponsored} onChange={(e) => setSponsored(e.currentTarget.checked)}/>
             </div>
 
             <input type='submit' value='Add Event' className='button button-block'/>

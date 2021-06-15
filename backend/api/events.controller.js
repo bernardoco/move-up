@@ -43,12 +43,14 @@ export default class EventsController {
             const local = req.body.local
             const date = req.body.date
             const max_players = req.body.max_players
+            const sponsored = req.body.sponsored
 
             const EventResponse = await EventsDAO.addEvent(
                 sport,
                 local,
                 date,
-                max_players
+                max_players,
+                sponsored
             )
             res.json({ status: "success" })
         } catch (e) {
