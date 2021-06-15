@@ -24,6 +24,7 @@ const ProfilePage = (user) => {
     return (
         <section className= {width >= 768 ? 'container' : 'container-mobile'}>
             <div className="events-comp">
+                { user.user.photoURL ? <img src={user.user.photoURL} alt="Profile Picture"></img> : null}
                 <p>{user.user.displayName}</p>
                 <p id='players'>{user.user.email}<FaEnvelope /></p>
             </div>
