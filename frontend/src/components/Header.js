@@ -29,9 +29,12 @@ const Header = () => {
           <div className = "UserInfo">
             <h2 className = "text-2xl font-semibold">Welcome, {displayName}!</h2>
           </div>
-          <button className = "Sign-Out" onClick = {() => {auth.signOut()}}>
-          <ExitToApp/>
-          </button>
+          <Link to="/">
+            <button className = "Sign-Out" onClick = {() => {auth.signOut()}}>
+            <ExitToApp/>
+            </button>
+          </Link>
+          
         </div>
         : <div></div>
         }
