@@ -27,7 +27,7 @@ const Header = () => {
             </Link>
 
           <div className = "UserInfo">
-            <h2 className = "text-2xl font-semibold">Welcome, {displayName}!</h2>
+            <h2 className = "user-info">Welcome, {displayName}!</h2>
           </div>
           <Link to="/">
             <button className = "Sign-Out" onClick = {() => {auth.signOut()}}>
